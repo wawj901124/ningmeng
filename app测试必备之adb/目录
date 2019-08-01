@@ -1,0 +1,48 @@
+何为adb?
+      adb（Android Debug Bridge）是android sdk的一个工具
+      adb 是用来连接安卓手机和PC端的桥梁，要有adb作为二者之间的维系，才能让用户在电脑上对手机进行全面的操作。
+      Android的初衷是用adb这样的一个工具来协助开发人员在开发android应用的过程中更快更好的调试apk,
+    因此adb具有安装卸载apk、拷贝推送文件、查看设备硬件信息、查看应用程序占用资源、在设备执行shell
+    命令等功能
+
+adb 组成
+        客户端client: 运行在你的电脑上，你可以通过adb命令来调用起一个客户端。其他Android工具，例如
+      ADT插件、DDMS都可以创建出一个客户端
+        服务器server: 运行在你电脑的后台，负责管理client和daemon进行通信。
+        守护进程daemon: 运行在模拟器或者Android设备的后台。
+
+        验证：打开Windows命令行，输入adb命令
+
+        adb version :查看adb版本
+        adb connect 127.0.0.1:62001 : 连接夜神模拟器
+        adb devices: 查看连接的设备
+        常见问题解决方法网址：https://www.cnblogs.com/yyoba/p/9263805.html
+
+adb常用命令01
+        adb --help  查看帮助手册
+        adb devices  检查连接到电脑的安卓设备，这个是我们会经常用到的检测命令
+        adb pull <手机路径>  <本机路径>  从手机中拉去信息放到本地电脑
+        adb push <本机路径>  <手机路径>  从本地推送信息到手机上去
+        adb shell  登录设备shell(命令行的人机界面)，ll ls命令都可以用，进入到linux命令环境了，
+      相当于执行远程命令！
+        adb logcat  打印日志
+
+        adb shell
+        cd /sdcard
+        ls
+        ll
+        exit
+        adb pull /sdcard/server.log D;\
+        adb push D:\Photo\1.jpg /sdcard
+        adb push D:\Photo\1.jpg /sdcard/
+        adb logcat > D:\logcat\logcat_2018-11-20.txt
+
+adb常用命令02
+        adb install xxx.apk   为了获取apk的安装包所在地址，可以直接把apk拖到cmd的窗口获取，、
+      返回success就说明安装成功了！
+        adb install -r xxx.apk  保留数据和缓存文件，重新暗转APK
+
+
+
+
+
